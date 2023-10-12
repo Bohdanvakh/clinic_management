@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :doctors
+  devise_for :patients
+  devise_for :admin_users
   devise_for :users
 
   namespace :admin do
@@ -6,4 +9,6 @@ Rails.application.routes.draw do
     resources :doctors
     resources :categories
   end
+
+  get '/index/', to: 'users#index'
 end
