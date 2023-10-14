@@ -4,11 +4,21 @@ class Patient < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  validates :phone_number, uniqueness: true
+
+  def email_required?
+    false
+  end
+
+  def email_changed?
+    false
+  end
+
   has_many :doctors
   has_many :appointments
   has_many :doctors, through: :appointments
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  # validates :first_name
+  # validates :last_name
   validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ }
 end
