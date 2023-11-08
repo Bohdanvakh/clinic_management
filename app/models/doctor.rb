@@ -4,7 +4,7 @@ class Doctor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :phone_number, uniqueness: true
+  validates :phone_number, uniqueness: true, length: { is: 10 }
 
   def email_required?
     false
