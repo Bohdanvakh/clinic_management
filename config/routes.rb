@@ -10,7 +10,9 @@ Rails.application.routes.draw do
     resources :categories
   end
 
-  root to: 'users#index'
+  # root to: 'users#index'
+
   get '/doctors/index', to: 'doctors#index'
-  # get '/users/index' to: 'users#index'
+  get '/patients/index', to: 'patients#index'
+  get '/users/index', to: 'users#index'
 end
