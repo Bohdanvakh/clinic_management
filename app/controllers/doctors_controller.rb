@@ -3,4 +3,8 @@ class DoctorsController < ApplicationController
 
   def index
   end
+
+  def show
+    @user = current_doctor
+  end
 end

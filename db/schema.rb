@@ -36,13 +36,13 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_143409) do
   end
 
   create_table "appointments", force: :cascade do |t|
-    t.integer "physician_id"
+    t.integer "doctor_id"
     t.integer "patient_id"
     t.boolean "active_status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["doctor_id"], name: "index_appointments_on_doctor_id"
     t.index ["patient_id"], name: "index_appointments_on_patient_id"
-    t.index ["physician_id"], name: "index_appointments_on_physician_id"
   end
 
   create_table "categories", force: :cascade do |t|

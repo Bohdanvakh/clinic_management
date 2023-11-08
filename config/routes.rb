@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     resources :categories
   end
 
+  resources :doctors
+
   # root to: 'users#index'
 
   get '/doctors/index', to: 'doctors#index'
