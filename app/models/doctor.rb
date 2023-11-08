@@ -1,4 +1,6 @@
 class Doctor < ApplicationRecord
+  include DeviseMethods
+
   belongs_to :category, optional: true
   has_many :appointments
   has_many :patients, through: :appointments
@@ -11,12 +13,4 @@ class Doctor < ApplicationRecord
   # validates :email, presence: false, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ }
   validates :category_id, presence: false
-
-  def email_required?
-    false
-  end
-
-  def email_changed?
-    false
-  end
 end
