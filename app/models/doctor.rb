@@ -1,10 +1,16 @@
 class Doctor < ApplicationRecord
+  belongs_to :category, optional: true
+  has_many :appointments
+  has_many :patients, through: :appointments
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :phone_number, uniqueness: true, length: { is: 10 }
+  validates :email, presence: false, uniqueness: true
+  validates :phone_number, presence: true, uniqueness: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ }
+  validates :category_id, presence: false
 
   def email_required?
     false
@@ -13,13 +19,4 @@ class Doctor < ApplicationRecord
   def email_changed?
     false
   end
-
-  belongs_to :category, optional: true
-  has_many :appointments
-  has_many :patients, through: :appointments
-
-  # validates :first_name
-  # validates :last_name
-  validates :phone_number, presence: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ }
-  validates :category_id, presence: false
 end

@@ -10,5 +10,5 @@ Rails.application.routes.draw do
     resources :categories
   end
 
-  get '/index/', to: 'users#index'
+  root to: 'users#index'
 end
