@@ -1,6 +1,14 @@
 <div>
-    <p><%= @user %></p>
+    <p>Doctor id: <%= @user.id %></p>
+    <p>Doctor category: <%= @user.category.name %></p>
     <%= button_to "Sign out", destroy_doctor_session_path, method: :delete, data: { turbolinks: 'false' } %>
 </div>
 <hr>
-<p><%= @user.patients %></p>
+
+<% if @user.patients.any? %>
+  <% @user.patients.each do |patient| %>
+    <p><%= patient %></p>
+  <% end %>
+<% else %>
+  <p>There are no patients</p>
+<% end %>
