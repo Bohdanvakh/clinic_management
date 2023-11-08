@@ -1,0 +1,6 @@
+<div>
+    <p><%= @user %></p>
+    <%= button_to "Sign out", destroy_doctor_session_path, method: :delete, data: { turbolinks: 'false' } %>
+</div>
+<hr>
+<p><%= @user.patients %></p>
