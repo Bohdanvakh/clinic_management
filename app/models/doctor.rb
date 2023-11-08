@@ -8,7 +8,7 @@ class Doctor < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  validates :email, presence: false, uniqueness: true
+  # validates :email, presence: false, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true, length: { is: 10 }, format: { with: /\A[0-9]+\z/ }
   validates :category_id, presence: false
 
