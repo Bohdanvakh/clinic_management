@@ -11,4 +11,6 @@ Rails.application.routes.draw do
   end
 
   root to: 'users#index'
+  get '/doctors/index', to: 'doctors#index'
+  # get '/users/index' to: 'users#index'
 end
