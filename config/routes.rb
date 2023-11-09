@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   end
 
   resources :doctors
+  resources :patients
+  resources :appointments
 
   # root to: 'users#index'
 
