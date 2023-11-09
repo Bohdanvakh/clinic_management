@@ -7,4 +7,8 @@ class DoctorsController < ApplicationController
   def show
     @user = current_doctor
   end
+
+  def show_appointment
+
+  end
 end
