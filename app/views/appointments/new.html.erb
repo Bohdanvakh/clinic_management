@@ -1,0 +1,12 @@
+<%= form_with(model: @appointments, data: { turbo: false }, url: appointments_path, method: :post) do |f| %>
+    <p><%= f.label "My id" %></p>
+    <%= f.collection_select :patient_id, Patient.all, :id, :id, { prompt: "Select your ID" } %>
+
+    <p><%= f.label "Doctor id" %></p>
+    <%= f.collection_select :doctor_id, Doctor.all, :id, :id, { prompt: "Select doctor ID" } %>
+
+    <p><%= f.label "Date" %></p>
+    <%= f.date_field :date %>
+
+    <%= f.submit "Create appointments" %>
+<% end %>
