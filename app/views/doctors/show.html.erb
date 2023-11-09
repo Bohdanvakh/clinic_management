@@ -5,9 +5,11 @@
 </div>
 <hr>
 
-<% if @user.patients.any? %>
-  <% @user.patients.each do |patient| %>
-    <p><%= patient %></p>
+<% if @user.appointments.any? %>
+  <% @user.appointments.each do |appointment| %>
+    <p><%= appointment %></p>
+    <p><%= appointment.active_status ? appointment.active_status : "No active status" %></p>
+    <p><%= appointment.date ? appointment.date : "No appointment data" %></p>
   <% end %>
 <% else %>
   <p>There are no patients</p>
