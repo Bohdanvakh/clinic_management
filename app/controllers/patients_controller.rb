@@ -3,4 +3,10 @@ class PatientsController < ApplicationController
 
   def index
   end
+
+  def show
+    @user = current_patient
+
+    # @appointment = Appointment.new
+  end
 end
