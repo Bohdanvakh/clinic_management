@@ -8,8 +8,10 @@
 <% if @user.appointments.any? %>
   <% @user.appointments.each do |appointment| %>
     <p><%= appointment %></p>
+    <p><%= appointment.id %></p>
     <p><%= appointment.active_status ? appointment.active_status : "No active status" %></p>
     <p><%= appointment.date ? appointment.date : "No appointment data" %></p>
+    <%= link_to "Add recommendation", edit_appointment_path(appointment.id) %>
   <% end %>
 <% else %>
   <p>There are no patients</p>
