@@ -1,0 +1,15 @@
+<%= form_for @appointment, url: appointment_path(@appointment), method: :patch do |f| %>
+    <div>
+        <%= f.label :date %>
+        <%= f.date_field :date %>
+    </div>
+    <div>
+        <%= f.label :active_status %>
+        <%= f.text_field :active_status %>
+    </div>
+    <div>
+        <%= f.label :recommendation %>
+        <%= f.text_field :recommendation %>
+    </div>
+  <%= f.submit 'Update' %>
+<% end %>
