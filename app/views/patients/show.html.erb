@@ -1,4 +1,10 @@
 <h1><%= @user %></h1>
+<h3><%= @user.first_name ? @user.first_name : "You don't fill your name yet" %></h1>
+<h3><%= @user.last_name ? @user.last_name : "You don't fill your name yet" %></h1>
 <h1>My id: <%= @user.id %></h1>
+
+<% if @user.id == current_patient.id %>
+    <%= link_to "Edit", edit_patient_path %>
+<% end %>
 
 <%= render "partials/form" %>
